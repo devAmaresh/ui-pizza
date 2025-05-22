@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Pizza, ChevronRight, Moon, Sun, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { SessionContext, useSession } from "next-auth/react";
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -20,13 +21,14 @@ export default function Home() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const { data: session } = useSession();
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-background to-background/50">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-background to-background/50 overflow-x-hidden">
       {/* Hero pattern background */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-black bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1f1f1f_1px,transparent_1px),linear-gradient(to_bottom,#1f1f1f_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
 
-      <header className="border-b border-border/40 backdrop-blur-sm bg-background/60 py-4 sticky top-0 z-50 px-12">
-        <div className="container flex items-center justify-between">
+      <header className="border-b border-border/40 backdrop-blur-sm bg-background/60 py-4 sticky top-0 z-50">
+        <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/50 opacity-70 blur-sm"></div>
@@ -54,7 +56,19 @@ export default function Home() {
               </Button>
             )}
             <Button asChild className="rounded-full">
-              <Link href="/login">Sign In</Link>
+              <Link href="/login">
+                {session ? (
+                  <span className="flex items-center gap-2">
+                    <Pizza className="h-4 w-4" />
+                    Dashboard
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <Pizza className="h-4 w-4" />
+                    Sign In
+                  </span>
+                )}
+              </Link>
             </Button>
           </div>
         </div>
@@ -62,11 +76,12 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero section */}
-        <section className="py-16 md:py-24">
-          <div className="container px-4 md:px-6 max-w-full mx-auto overflow-hidden">
+        <section className="py-8 md:pb-24 pt-16 md:pt-12">
+          <div className="container mx-auto px-5 md:px-6 lg:px-14 xl:px-20 max-w-8xl">
             <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
+              <div className="flex flex-col justify-start pt-8 md:pt-0 space-y-4">
+                {/* Add negative margin top to raise text higher */}
+                <div className="space-y-2 -mt-5 md:mt-10">
                   <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
                     Pizza Management Platform
                   </div>
@@ -78,12 +93,10 @@ export default function Home() {
                     satisfaction with our all-in-one pizza dashboard.
                   </p>
                 </div>
+
+                {/* Keep buttons and avatars at the same position */}
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button
-                    size="lg"
-                    className="rounded-full gap-1 group"
-                    asChild
-                  >
+                  <Button size="lg" className="rounded-full gap-1 group" asChild>
                     <Link href="/login">
                       Get Started
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -119,7 +132,9 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="relative hidden lg:block">
+
+              {/* Image column - adjust vertical alignment */}
+              <div className="relative hidden lg:block lg:self-center">
                 <div className="absolute -right-20 top-10 h-[500px] w-[500px] rounded-full bg-primary/20 blur-3xl max-w-full md:block hidden"></div>
                 <div className="relative aspect-square overflow-hidden rounded-3xl border shadow-xl">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
@@ -156,7 +171,7 @@ export default function Home() {
 
         {/* Features section */}
         <section id="features" className="py-16 md:py-24 bg-muted/50">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6 max-w-8xl">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
@@ -232,7 +247,7 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className="py-16 md:py-24">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6 max-w-8xl">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="rounded-2xl bg-primary/10 p-px">
                 <div className="rounded-[calc(1rem-1px)] bg-gradient-to-b from-background via-background to-background/80 p-8 md:p-12 lg:p-16 backdrop-blur-md">
@@ -263,8 +278,8 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-8 md:py-12 w-full overflow-hidden">
-        <div className="container px-4 md:px-6 flex flex-col items-center justify-between gap-4 md:flex-row">
+      <footer className="border-t py-8 md:py-12 w-full">
+        <div className="container mx-auto px-4 md:px-6 max-w-8xl flex flex-col items-center justify-between gap-4 md:flex-row">
           <div className="flex items-center gap-2">
             <Pizza className="h-5 w-5 text-primary" />
             <span className="text-sm font-semibold">PizzaDash</span>
@@ -274,19 +289,19 @@ export default function Home() {
           </p>
           <div className="flex items-center gap-4">
             <Link
-              href="/terms"
+              href="#"
               className="text-sm text-muted-foreground hover:underline"
             >
               Terms
             </Link>
             <Link
-              href="/privacy"
+              href="#"
               className="text-sm text-muted-foreground hover:underline"
             >
               Privacy
             </Link>
             <Link
-              href="/contact"
+              href="#"
               className="text-sm text-muted-foreground hover:underline"
             >
               Contact
