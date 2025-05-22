@@ -285,7 +285,15 @@ export default function Home() {
             <span className="text-sm font-semibold">PizzaDash</span>
           </div>
           <p className="text-center text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} PizzaDash. All rights reserved.
+            &copy; {new Date().getFullYear()}. Made with ❤️ by{" "}
+            <Link
+              href="https://amareshh.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-medium"
+            >
+              Amaresh
+            </Link>
           </p>
           <div className="flex items-center gap-4">
             <Link
