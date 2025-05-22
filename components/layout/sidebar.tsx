@@ -186,7 +186,7 @@ export function Sidebar() {
               "flex items-center rounded-md transition-colors",
               collapsed && !isMobile
                 ? "justify-center h-10"
-                : "h-10 px-3 bg-muted/50 hover:bg-muted/80 justify-between"
+                : "h-10 px-3  hover:bg-muted/80 justify-between"
             )}
           >
             {(!collapsed || isMobile) && (
