@@ -149,7 +149,7 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="text-sm text-white/70">
-                          Today's Revenue
+                          Today&apos;s Revenue
                         </div>
                         <div className="text-2xl font-bold text-white">
                           $3,245.80
