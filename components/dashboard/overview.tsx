@@ -62,9 +62,7 @@ const Overview = () => {
   const weeklyOrderData = [60, 45, 80, 75, 62, 87, 68];
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-  const monthlyOrderData = [
-    42, 58, 69, 53, 80, 45, 72, 91, 65, 55, 78, 82,
-  ];
+  const monthlyOrderData = [42, 58, 69, 53, 80, 45, 72, 91, 65, 55, 78, 82];
   const months = [
     "Jan",
     "Feb",
@@ -83,8 +81,7 @@ const Overview = () => {
   // Determine which data to display based on current timeRange
   const displayData =
     timeRange === "weekly" ? weeklyOrderData : monthlyOrderData;
-  const displayLabels =
-    timeRange === "weekly" ? weekDays : months;
+  const displayLabels = timeRange === "weekly" ? weekDays : months;
 
   return (
     <>
@@ -203,10 +200,7 @@ const Overview = () => {
               <div className="absolute inset-x-0 bottom-8 flex items-end gap-1 h-[220px]">
                 {/* Dynamic bar chart based on selected time range */}
                 {displayData.map((height, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 flex flex-col items-center"
-                  >
+                  <div key={i} className="flex-1 flex flex-col items-center">
                     <div className="relative w-full group">
                       <div
                         className="w-full bg-primary/80 hover:bg-primary rounded-t transition-all cursor-pointer"
