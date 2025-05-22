@@ -1,7 +1,10 @@
+// app/api/auth/[...nextauth]/route.ts
+
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { NextAuthOptions } from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 
+// Extend the Session interface
 declare module "next-auth" {
   interface Session {
     user: {
@@ -9,11 +12,11 @@ declare module "next-auth" {
       name?: string | null;
       email?: string | null;
       image?: string | null;
-    };
+    }
   }
 }
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
