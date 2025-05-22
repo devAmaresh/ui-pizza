@@ -144,6 +144,7 @@ lib/
 - [x] Pizza Orders Page with table and badges
 - [x] Tailwind styling
 - [x] Responsive layout
+- [x] used React Context API
 - [x] Vercel deployment
 
 ---
