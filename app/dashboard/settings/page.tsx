@@ -77,6 +77,8 @@ export default function SettingsPage() {
                 alt={session.user.name || "User"}
                 fill
                 className="rounded-full border-4 border-background object-cover"
+                priority
+                quality={100}
               />
             </div>
           ) : (
@@ -344,7 +346,10 @@ export default function SettingsPage() {
                             <span>Dark</span>
                           </div>
                         </SelectItem>
-                        <SelectItem value="system" className="flex items-center">
+                        <SelectItem
+                          value="system"
+                          className="flex items-center"
+                        >
                           <div className="flex items-center gap-2">
                             <span className="flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-b from-white to-black text-[10px] font-bold">
                               A
