@@ -183,7 +183,7 @@ export default function SettingsPage() {
                     <div className="space-y-0.5">
                       <Label htmlFor="sessions">Active Sessions</Label>
                       <p className="text-sm text-muted-foreground">
-                        Manage devices where you're currently logged in.
+                        Manage devices where you&apos;re currently logged in.
                       </p>
                     </div>
                     <Button variant="outline" size="sm" disabled>
