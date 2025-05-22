@@ -1,7 +1,5 @@
 # 🚀 Next.js Dashboard with Google Authentication
 
-
-
 ## Live Demo
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-blue?style=for-the-badge&logo=vercel)](https://ui-pizza-blond.vercel.app/dashboard)
@@ -96,7 +94,7 @@ npm run dev
 
 The application is deployed on **Vercel** and can be accessed at:
 
-🔗 [Live App URL](https://your-deployed-url.vercel.app)
+🔗 [Live App URL](https://ui-pizza-blond.vercel.app)
 
 ---
 
@@ -155,6 +153,7 @@ lib/
 This project demonstrates a secure and modern Next.js dashboard with authentication, responsive UI, and elegant handling of protected content. It adheres to best practices in structure, performance, and developer experience.
 
 Feel free to reach out if you'd like me to walk you through any part of the codebase!
+
 ## 👤 Author
 
 **Amaresh**
