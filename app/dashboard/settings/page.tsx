@@ -329,9 +329,9 @@ export default function SettingsPage() {
                     >
                       <SelectTrigger
                         id="theme-select"
-                        className="w-full md:w-[200px]"
+                        className="w-full md:w-[200px] focus:ring-0 focus:ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
                       >
-                        <SelectValue placeholder="Select theme" />
+                        <SelectValue placeholder="Select theme" className="" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="light" className="flex items-center">
