@@ -31,7 +31,7 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-7xl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="relative">
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary to-primary/50 opacity-70 blur-sm"></div>
+              <div className="absolute -inset-1 rounded-full blur-sm"></div>
               <div className="relative rounded-full bg-background p-1.5">
                 <Pizza className="h-6 w-6 text-primary" />
               </div>
