@@ -287,7 +287,7 @@ export default function Home() {
           <p className="text-center text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()}. Made with ❤️ by{" "}
             <Link
-              href="https://amareshh.vercel.app/"
+              href="https://github.com/devAmaresh"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline font-medium"
